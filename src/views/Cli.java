@@ -54,18 +54,18 @@ public class Cli {
                 System.out.println("Numero de identificação de cliente:");
                 String clientId = input.nextLine();
                 if (bank.hasClient(clientId) == true) {
-                    System.out.println("IDConta ?");
+                    System.out.println("ID de Conta ?");
                     int accountID = input.nextInt();
                     System.out.println("Deposito inicial?");
                     String answer = input.nextLine();
                     if (answer.equals("S") == true) {
                         System.out.println("Quantidade?");
                         String amount = input.nextLine();
-                        bank.registerAccount(clientId, accountID,Integer.parseInt(amount));
+                        bank.registerAccount(clientId, accountID, Integer.parseInt(amount));
                         System.out.println("Conta criada com sucesso.");
 
                     } else {
-                        bank.registerAccount(clientId, accountID,0);
+                        bank.registerAccount(clientId, accountID, 0);
                         System.out.println("Conta criada com sucesso.");
                     }
                 } else {
@@ -73,15 +73,46 @@ public class Cli {
                 }
 
             } else if (command.equals("M")) {
-                System.out.println("")
+                System.out.println("Numero de identificação de cliente:");
+                String clientId = input.nextLine();
+                if (bank.hasClient(clientId) == true) {
+                    System.out.println("ID da conta:");
+                    int accountID = input.nextInt();
+                    if (bank.hasAcount() == true) {
+                        System.out.println("Operação:");
+                        String answer = input.nextLine();
+                        if (answer.equals("debito")) {
+                            System.out.println("Quantidade:");
+                            double amount = input.nextDouble();
+                            bank.debit(clientId, accountID, amount);
 
+                        } else if (answer.equals("credito")) {
+                            System.out.println("Quantidade:");
+                            double amount = input.nextDouble();
+                            bank.credit(clientId, accountID, amount);
+
+                        } else {
+                            System.out.println("Operação inválida.");
+                        }
+
+                    } else {
+                        System.out.println("Conta inexistente.");
+                    }
+
+                } else {
+                    System.out.println("Cliente inexistente.");
+                }
 
             } else if (command.equals("SC")) {
-                System.out.println("IDcliente:");
+                System.out.println("ID de cliente:");
                 String clientId = input.nextLine();
-                System.out.println("IDconta:");
-                int accountID = input.nextInt();
-                System.out.println("Saldo:" + bank.getBalance(clientId,accountID));
+                if (bank.hasClient(clientId) == true) {
+                    System.out.println("ID de conta:");
+                    int accountID = input.nextInt();
+                    System.out.println("Saldo:" + bank.getBalance(clientId, accountID));
+                } else {
+                    System.out.println("Cliente inexistente.");
+                }
             } else {
                 System.out.println("Instrução inválida.");
             }

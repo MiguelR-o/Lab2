@@ -1,12 +1,12 @@
 package controllers;
 
 import java.util.*;
-import java.util.Random;
 import models.*;
 
 public class BankController {
     private List<Client> clients;
     private List<Account> accounts;
+    private double tax;
 
     public BankController() {
         this.clients = new LinkedList<Client>();
@@ -22,6 +22,21 @@ public class BankController {
         }
         return false;
 
+    }
+
+    public boolean hasAccount(int accountID) {
+
+        for (int i = 0; i < this.accounts.size(); i++) {
+            if (this.accounts.get(i).getAccountID() == accountID) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
     }
 
     public void registerClient(ArrayList<String> list) {
@@ -56,6 +71,18 @@ public class BankController {
         Client client = getClient(clientID);
         return client.getAccountByID(accountID).getBalance().getAmount();
 
+    }
+
+    public void debit(String clientID, int accountID, double amount) {
+        Client client = getClient(clientID);
+        double currentBalance = client.getAccountByID(accountID).getBalance().getAmount();
+        client.getAccountByID(accountID).getBalance().setAmount(currentBalance - amount - this.tax);
+    }
+
+    public void credit(String clientID, int accountID, double amount) {
+        Client client = getClient(clientID);
+        double currentBalance = client.getAccountByID(accountID).getBalance().getAmount();
+        client.getAccountByID(accountID).getBalance().setAmount(currentBalance + amount - this.tax);
     }
 
 }
