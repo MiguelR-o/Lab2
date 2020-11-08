@@ -49,21 +49,21 @@ public class Client {
 
     public Acount getAcountByID(int acountID) {
         for (int i = 0; i < this.acounts.size(); i++) {
-            if (this.acounts.get(i).getAcountID == acountID) {
+            if (this.acounts.get(i).getAcountID() == acountID) {
                 return this.acounts.get(i);
-            } else {
-                return null;
             }
+
         }
+        return null;
     }
 
     public boolean hasAcountByID(int acountID) {
         for (int i = 0; i < this.acounts.size(); i++) {
-            if (this.acounts.get(i).getAcountID == acountID) {
+            if (this.acounts.get(i).getAcountID() == acountID) {
                 return true;
-            } else {
-                return false;
             }
+
         }
+        return false;
     }
 }

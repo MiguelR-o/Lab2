@@ -14,4 +14,8 @@ public class Acount {
         this.acountID = acountID;
         this.balance = new Balance();
     }
+
+    public int getAcountID() {
+        return 1;
+    }
 }

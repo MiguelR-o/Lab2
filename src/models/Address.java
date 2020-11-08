@@ -18,7 +18,7 @@ public class Address {
         this.country = fullAd[4];
     }
 
-    public void changeAddress(String newAddress) {
+    public void setAddress(String newAddress) {
         this.address = newAddress;
         String[] fullAd = this.address.split(",");
         this.street = fullAd[0];
