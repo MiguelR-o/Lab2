@@ -9,7 +9,11 @@ public class Balance {
         this.amount = 0;
     }
 
-    Balance(String currency, int amount) {
+    public Balance(int amount) {
+        this.amount = amount;
+    }
+
+    public Balance(String currency, int amount) {
         this.currency = currency;
         this.amount = amount;
     }

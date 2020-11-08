@@ -14,10 +14,10 @@ public class BankController {
 
     public boolean hasClient(String clientID) {
 
+        System.out.println(clientID);
         for (int i = 0; i < this.clients.size(); i++) {
-            if (this.clients.get(i).getDocument().getIdNumber() == clientID) {
-                System.out.println(this.clients.get(i).getDocument().getIdNumber());
-                System.out.println(clientID);
+            System.out.println(this.clients.get(i).getDocument().getIdNumber());
+            if (this.clients.get(i).getDocument().getIdNumber().equals(clientID)) {
                 return true;
             }
         }

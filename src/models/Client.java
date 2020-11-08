@@ -52,7 +52,6 @@ public class Client {
             if (this.acounts.get(i).getAcountID() == acountID) {
                 return this.acounts.get(i);
             }
-
         }
         return null;
     }
@@ -62,7 +61,6 @@ public class Client {
             if (this.acounts.get(i).getAcountID() == acountID) {
                 return true;
             }
-
         }
         return false;
     }

@@ -45,13 +45,13 @@ public class Cli {
                 } else {
                     System.out.println("Cliente existente, registo falhado.");
                 }
-            } else if (command == "AC") {
+            } else if (command.equals("AC")) {
 
-            } else if (command == "NC") {
+            } else if (command.equals("NC")) {
 
-            } else if (command == "M") {
+            } else if (command.equals("M")) {
 
-            } else if (command == "SC") {
+            } else if (command.equals("SC")) {
 
             } else {
                 System.out.println("Instrução inválida.");
