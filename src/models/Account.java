@@ -43,8 +43,8 @@ public class Account {
         this.creditAllowed = answer;
     }
 
-    public Object[] getAdjacentClients() {
-        Object[] arrayClient = adjacentClients.toArray();
+    public Client[] getAdjacentClients() {
+        Client[] arrayClient = (Client[]) adjacentClients.toArray();
         return arrayClient;
     }
 
