@@ -57,14 +57,13 @@ public class Cli {
                     System.out.println("ID de Conta ?");
                     int accountID = input.nextInt();
                     System.out.println("Deposito inicial?");
-                    String answer = input.nextLine();
-                    if (answer.equals("S") == true) {
+                    if (command.equals("S")) {
                         System.out.println("Quantidade?");
                         String amount = input.nextLine();
                         bank.registerAccount(clientId, accountID, Integer.parseInt(amount));
                         System.out.println("Conta criada com sucesso.");
 
-                    } else {
+                    } else if (command.equals("N")) {
                         bank.registerAccount(clientId, accountID, 0);
                         System.out.println("Conta criada com sucesso.");
                     }
@@ -78,7 +77,7 @@ public class Cli {
                 if (bank.hasClient(clientId) == true) {
                     System.out.println("ID da conta:");
                     int accountID = input.nextInt();
-                    if (bank.hasAcount() == true) {
+                    if (bank.hasAccount(accountID) == true) {
                         System.out.println("Operação:");
                         String answer = input.nextLine();
                         if (answer.equals("debito")) {

@@ -23,8 +23,8 @@ public class Address {
         String[] fullAd = this.address.split(",");
         this.street = fullAd[0];
         this.number = fullAd[1];
-        this.city = fullAd[2];
-        this.zipCode = fullAd[3];
+        this.zipCode = fullAd[2];
+        this.city = fullAd[3];
         this.country = fullAd[4];
 
     }

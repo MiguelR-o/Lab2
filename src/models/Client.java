@@ -16,7 +16,7 @@ public class Client {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.name = name;
-        this.acounts = new LinkedList<Account>();
+        this.accounts = new LinkedList<Account>();
     }
 
     public Document getDocument() {
