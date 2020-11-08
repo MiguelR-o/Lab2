@@ -46,13 +46,42 @@ public class Cli {
                     System.out.println("Cliente existente, registo falhado.");
                 }
             } else if (command.equals("AC")) {
+                ArrayList<String> list = new ArrayList<String>();
+                System.out.println("numero de identificação de cliente:");
+                String clientID = input.nextLine();
 
             } else if (command.equals("NC")) {
+                System.out.println("Numero de identificação de cliente:");
+                String clientId = input.nextLine();
+                if (bank.hasClient(clientId) == true) {
+                    System.out.println("IDConta ?");
+                    int accountID = input.nextInt();
+                    System.out.println("Deposito inicial?");
+                    String answer = input.nextLine();
+                    if (answer.equals("S") == true) {
+                        System.out.println("Quantidade?");
+                        String amount = input.nextLine();
+                        bank.registerAccount(clientId, accountID,Integer.parseInt(amount));
+                        System.out.println("Conta criada com sucesso.");
+
+                    } else {
+                        bank.registerAccount(clientId, accountID,0);
+                        System.out.println("Conta criada com sucesso.");
+                    }
+                } else {
+                    System.out.println("Cliente inexistente.");
+                }
 
             } else if (command.equals("M")) {
+                System.out.println("")
+
 
             } else if (command.equals("SC")) {
-
+                System.out.println("IDcliente:");
+                String clientId = input.nextLine();
+                System.out.println("IDconta:");
+                int accountID = input.nextInt();
+                System.out.println("Saldo:" + bank.getBalance(clientId,accountID));
             } else {
                 System.out.println("Instrução inválida.");
             }

@@ -2,7 +2,7 @@ package models;
 
 public class Document {
     private String type;
-    final String idnumber;
+    private String idnumber;
     private BirthDate birthDate;
 
     public Document(String type, String idnumber, String date) {

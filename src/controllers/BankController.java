@@ -1,22 +1,21 @@
 package controllers;
 
 import java.util.*;
+import java.util.Random;
 import models.*;
 
 public class BankController {
     private List<Client> clients;
-    private List<Acount> acounts;
+    private List<Account> accounts;
 
     public BankController() {
         this.clients = new LinkedList<Client>();
-        this.acounts = new LinkedList<Acount>();
+        this.accounts = new LinkedList<Account>();
     }
 
     public boolean hasClient(String clientID) {
 
-        System.out.println(clientID);
         for (int i = 0; i < this.clients.size(); i++) {
-            System.out.println(this.clients.get(i).getDocument().getIdNumber());
             if (this.clients.get(i).getDocument().getIdNumber().equals(clientID)) {
                 return true;
             }
@@ -35,4 +34,28 @@ public class BankController {
         clients.add(client);
 
     }
+
+    public Client getClient(String clientID) {
+        for (int i = 0; i < this.clients.size(); i++) {
+            if (this.clients.get(i).getDocument().getIdNumber().equals(clientID)) {
+                return this.clients.get(i);
+            }
+        }
+        return null;
+
+    }
+
+    public void registerAccount(String clientID, int accountID, double amount) {
+        Client client = getClient(clientID);
+        Account account = new Account(client, accountID, amount);
+        client.getAccountList().add(account);
+        accounts.add(account);
+    }
+
+    public double getBalance(String clientID, int accountID) {
+        Client client = getClient(clientID);
+        return client.getAccountByID(accountID).getBalance().getAmount();
+
+    }
+
 }

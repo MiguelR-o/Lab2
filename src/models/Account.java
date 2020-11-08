@@ -9,21 +9,14 @@ public class Account {
     private Balance balance;
     private boolean creditAllowed;
 
-    public Account(Client client, int accountID) {
-        this.client = client;
-        this.accountID = accountID;
-        this.balance = new Balance(0);
-        this.creditAllowed = false;
-    }
-
-    public Account(Client client, int accountID, int credit) {
+    public Account(Client client, int accountID, double credit) {
         this.client = client;
         this.accountID = accountID;
         this.balance = new Balance(credit);
         this.creditAllowed = false;
     }
 
-    public int getAccount() {
+    public int getAccountID() {
         return this.accountID;
     }
 

@@ -8,7 +8,7 @@ public class Client {
     private PhoneNumber phoneNumber;
     private Email email;
     private String name;
-    private List<Acount> acounts;
+    private List<Account> accounts;
 
     public Client(String name, Address address, Document doc, PhoneNumber phoneNumber, Email email) {
         this.document = doc;
@@ -16,7 +16,7 @@ public class Client {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.name = name;
-        this.acounts = new LinkedList<Acount>();
+        this.acounts = new LinkedList<Account>();
     }
 
     public Document getDocument() {
@@ -43,22 +43,22 @@ public class Client {
         this.name = name;
     }
 
-    public List<Acount> getAcountList() {
-        return this.acounts;
+    public List<Account> getAccountList() {
+        return this.accounts;
     }
 
-    public Acount getAcountByID(int acountID) {
-        for (int i = 0; i < this.acounts.size(); i++) {
-            if (this.acounts.get(i).getAcountID() == acountID) {
-                return this.acounts.get(i);
+    public Account getAccountByID(int accountID) {
+        for (int i = 0; i < this.accounts.size(); i++) {
+            if (this.accounts.get(i).getAccountID() == accountID) {
+                return this.accounts.get(i);
             }
         }
         return null;
     }
 
-    public boolean hasAcountByID(int acountID) {
-        for (int i = 0; i < this.acounts.size(); i++) {
-            if (this.acounts.get(i).getAcountID() == acountID) {
+    public boolean hasAccountByID(int accountID) {
+        for (int i = 0; i < this.accounts.size(); i++) {
+            if (this.accounts.get(i).getAccountID() == accountID) {
                 return true;
             }
         }

@@ -2,18 +2,18 @@ package models;
 
 public class Balance {
     public String currency;
-    public int amount;
+    public double amount;
 
     Balance() {
         this.currency = "euro";
-        this.amount = 0;
+        this.amount = 0.00;
     }
 
-    public Balance(int amount) {
+    public Balance(double amount) {
         this.amount = amount;
     }
 
-    public Balance(String currency, int amount) {
+    public Balance(String currency, double amount) {
         this.currency = currency;
         this.amount = amount;
     }
@@ -22,11 +22,11 @@ public class Balance {
         this.currency = currency;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return this.amount;
     }
 
