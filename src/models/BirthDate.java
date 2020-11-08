@@ -21,7 +21,7 @@ public class BirthDate {
         LocalDate todayDate = LocalDate.now();
         String formatedDate = dtf.format(todayDate);
 
-        String[] dates2 = formatedDate.split(" ", 5);
+        String[] dates2 = formatedDate.split(" ");
         int year2 = Integer.parseInt(dates2[0]);
         int month2 = Integer.parseInt(dates2[1]);
         int day2 = Integer.parseInt(dates2[2]);
@@ -39,13 +39,13 @@ public class BirthDate {
     }
 
     public int getBirthDay() {
-        String[] dates = this.date.split(" ", 5);
+        String[] dates = this.date.split(" ");
         int day = Integer.parseInt(dates[2]);
         return day;
     }
 
     public int getBirthMonth() {
-        String[] dates = this.date.split(" ", 5);
+        String[] dates = this.date.split(" ");
         int month = Integer.parseInt(dates[1]);
         return month;
     }

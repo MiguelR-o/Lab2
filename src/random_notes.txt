@@ -1,0 +1,8 @@
+ok entao o que eu quero que isto faça é :
+    entrar numa loop quando faço RC
+    --nome de cliente : (capturar input de uma linha)
+    --
+
+
+podia ter classe Cartao de cidadao e passaporte que herdasse Document e adicionar
+um metodo a cada uma para as diferenciar ...
