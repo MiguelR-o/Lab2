@@ -3,7 +3,7 @@ package models;
 public class Email {
     private String email;
 
-    Email(String email) {
+    public Email(String email) {
         this.email = email;
     }
 
