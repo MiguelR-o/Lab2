@@ -6,7 +6,7 @@ import java.time.format.*;
 public class BirthDate {
     private String date;
 
-    BirthDate(String date) {
+    public BirthDate(String date) {
         this.date = date;
     }
 

@@ -16,4 +16,8 @@ public class Email {
     public String getEmail() {
         return this.email;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

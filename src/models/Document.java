@@ -22,4 +22,8 @@ public class Document {
     public BirthDate getBirthDate() {
         return this.birthDate;
     }
+
+    public void setDocumentType(String newtype) {
+        this.type = newtype;
+    }
 }

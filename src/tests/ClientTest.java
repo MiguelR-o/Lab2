@@ -54,24 +54,24 @@ public class ClientTest {
     }
 
     @Test
-    public void getAcountByIDTest() {
+    public void getAccountByIDTest() {
         Client client = setUPClient();
-        Acount acount = new Acount(client, 123);
-        Acount secondacount = new Acount(client, 321);
-        client.getAcountList().add(acount);
-        client.getAcountList().add(secondacount);
-        assertEquals(client.getAcountByID(123), acount);
+        Account account = new Account(client, 123, 10.00);
+        Account secondAccount = new Account(client, 321, 10.00);
+        client.getAccountList().add(account);
+        client.getAccountList().add(secondAccount);
+        assertEquals(client.getAccountByID(123), account);
 
     }
 
     @Test
-    public void hasAcountByIDTest() {
+    public void hasAccountByIDTest() {
         Client client = setUPClient();
-        Acount acount = new Acount(client, 123);
-        Acount secondacount = new Acount(client, 321);
-        client.getAcountList().add(acount);
-        client.getAcountList().add(secondacount);
-        assertEquals(client.hasAcountByID(123), true);
-        assertEquals(client.hasAcountByID(423), false);
+        Account account = new Account(client, 123, 10.00);
+        Account secondAccount = new Account(client, 321, 10.00);
+        client.getAccountList().add(account);
+        client.getAccountList().add(secondAccount);
+        assertEquals(client.hasAccountByID(123), true);
+        assertEquals(client.hasAccountByID(423), false);
     }
 }

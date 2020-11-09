@@ -47,8 +47,29 @@ public class Cli {
                 }
             } else if (command.equals("AC")) {
                 ArrayList<String> list = new ArrayList<String>();
-                System.out.println("numero de identificação de cliente:");
-                String clientID = input.nextLine();
+                System.out.println("Id de cliente a atualizar:");
+                String clientId = input.nextLine();
+                if (bank.hasClient(clientId) == true) {
+
+                    System.out.println("novo tipo de Documento:");
+                    String docType = input.nextLine();
+                    list.add(docType);
+                    System.out.println("nova morada:");
+                    String address = input.nextLine();
+                    list.add(address);
+                    System.out.println("novo email:");
+                    String email = input.nextLine();
+                    list.add(email);
+                    System.out.println("novo contacto telefonico:");
+                    String phoneNumber = input.nextLine();
+                    list.add(phoneNumber);
+
+                    bank.updateClient(clientId, list);
+                    System.out.println("Dados atualizados com sucesso.");
+
+                } else {
+                    System.out.println("Cliente inexistente.");
+                }
 
             } else if (command.equals("NC")) {
                 System.out.println("Numero de identificação de cliente:");
@@ -56,14 +77,16 @@ public class Cli {
                 if (bank.hasClient(clientId) == true) {
                     System.out.println("ID de Conta ?");
                     int accountID = input.nextInt();
+                    input.nextLine();
                     System.out.println("Deposito inicial?");
-                    if (command.equals("S")) {
+                    String answer = input.nextLine();
+                    if (answer.equals("S")) {
                         System.out.println("Quantidade?");
                         String amount = input.nextLine();
-                        bank.registerAccount(clientId, accountID, Integer.parseInt(amount));
+                        bank.registerAccount(clientId, accountID, Double.parseDouble(amount));
                         System.out.println("Conta criada com sucesso.");
 
-                    } else if (command.equals("N")) {
+                    } else if (answer.equals("N")) {
                         bank.registerAccount(clientId, accountID, 0);
                         System.out.println("Conta criada com sucesso.");
                     }
@@ -77,18 +100,23 @@ public class Cli {
                 if (bank.hasClient(clientId) == true) {
                     System.out.println("ID da conta:");
                     int accountID = input.nextInt();
+                    input.nextLine();
                     if (bank.hasAccount(accountID) == true) {
                         System.out.println("Operação:");
                         String answer = input.nextLine();
                         if (answer.equals("debito")) {
                             System.out.println("Quantidade:");
                             double amount = input.nextDouble();
+                            input.nextLine();
                             bank.debit(clientId, accountID, amount);
+                            System.out.println("Operação completa.");
 
                         } else if (answer.equals("credito")) {
                             System.out.println("Quantidade:");
                             double amount = input.nextDouble();
+                            input.nextLine();
                             bank.credit(clientId, accountID, amount);
+                            System.out.println("Operação completa.");
 
                         } else {
                             System.out.println("Operação inválida.");
@@ -108,6 +136,7 @@ public class Cli {
                 if (bank.hasClient(clientId) == true) {
                     System.out.println("ID de conta:");
                     int accountID = input.nextInt();
+                    input.nextLine();
                     System.out.println("Saldo:" + bank.getBalance(clientId, accountID));
                 } else {
                     System.out.println("Cliente inexistente.");
